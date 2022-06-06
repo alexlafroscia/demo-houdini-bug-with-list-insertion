@@ -17,6 +17,7 @@
 		"@playwright/test": "^1.21.0",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
+		"@types/node": "^17.0.40",
 		"@typescript-eslint/eslint-plugin": "^5.10.1",
 		"@typescript-eslint/parser": "^5.10.1",
 		"eslint": "^8.12.0",
@@ -31,5 +32,12 @@
 		"typescript": "~4.6.2"
 	},
 	"type": "module",
-	"packageManager": "yarn@3.2.1"
+	"packageManager": "yarn@3.2.1",
+	"dependencies": {
+		"@graphql-ez/plugin-graphiql": "^0.11.5",
+		"@graphql-ez/sveltekit": "^0.4.1",
+		"graphql": "^16.5.0",
+		"graphql-ez": "^0.15.0",
+		"nexus": "^1.3.0"
+	}
 }

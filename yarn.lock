@@ -5,6 +5,26 @@ __metadata:
   version: 6
   cacheKey: 8
 
+"@envelop/core@npm:^2.3.2":
+  version: 2.3.3
+  resolution: "@envelop/core@npm:2.3.3"
+  dependencies:
+    "@envelop/types": 2.2.1
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 06a851265bd956f8bf2a91fb77c5e06d41b54fffabcb3701c74412abf295a9a199b6b0e403730e98a247c2d69917a35297bce2c39f5cfa274d5134e5b8504c12
+  languageName: node
+  linkType: hard
+
+"@envelop/types@npm:2.2.1, @envelop/types@npm:^2.2.0":
+  version: 2.2.1
+  resolution: "@envelop/types@npm:2.2.1"
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 294c282b72eecfc78c580ac815ecf96eb2bd6e03ee6fe5e3ec11400a438b2ff361f89b2ec95a0b82ea1b0def7b5efe8a9f995fa795910fd645e36ed30a849746
+  languageName: node
+  linkType: hard
+
 "@eslint/eslintrc@npm:^1.3.0":
   version: 1.3.0
   resolution: "@eslint/eslintrc@npm:1.3.0"
@@ -26,6 +46,42 @@ __metadata:
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
   checksum: 4059f790e2d07bf3c3ff3e0fec0daa8144fe35c1f6e0111c9921bd32106adaa97a4ab096ad7dab1e28ee6a9060083c4d1a4ada42a7f5f3f7a96b8812e2b757c1
+  languageName: node
+  linkType: hard
+
+"@graphql-ez/plugin-graphiql@npm:^0.11.5":
+  version: 0.11.5
+  resolution: "@graphql-ez/plugin-graphiql@npm:0.11.5"
+  dependencies:
+    "@graphql-ez/utils": ^0.1.4
+    "@pablosz/graphql-helix-graphiql": ^4.2.1
+  peerDependencies:
+    graphql-ez: ^0.15.0
+  checksum: 1dee7b297d44b4369905566774c837aa9d5cda9e157219e3cf0931ca681ed9fd1c4f1fceb08eadb15d81b5062fa9e6799e39c72ba9ee7ac51abbdcd616c1d4e9
+  languageName: node
+  linkType: hard
+
+"@graphql-ez/sveltekit@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@graphql-ez/sveltekit@npm:0.4.1"
+  dependencies:
+    "@graphql-ez/utils": ^0.1.4
+  peerDependencies:
+    "@sveltejs/kit": ^1.0.0-next.335
+    "@types/node": "*"
+    graphql: "*"
+    graphql-ez: ^0.15.0
+  checksum: d1464d78f5955f4366668c88cd307220ad9f3736a6afca88c02628afdfe09800992d2e74e1f05c3b0202bd4011b9bdad5352066212356190d4956d098098bd83
+  languageName: node
+  linkType: hard
+
+"@graphql-ez/utils@npm:^0.1.2, @graphql-ez/utils@npm:^0.1.4":
+  version: 0.1.4
+  resolution: "@graphql-ez/utils@npm:0.1.4"
+  peerDependencies:
+    "@types/node": "*"
+    graphql: "*"
+  checksum: 36cf68b41b4db2e001a2812342822d5ccc81068f83f90f9e7716c172b3a0bb93467958c1fd0ed0e92b97cf96e586ceaa06df5987aa29ce0da4376113bb9f24c7
   languageName: node
   linkType: hard
 
@@ -141,6 +197,24 @@ __metadata:
     mkdirp: ^1.0.4
     rimraf: ^3.0.2
   checksum: 1388777b507b0c592d53f41b9d182e1a8de7763bc625fc07999b8edbc22325f074e5b3ec90af79c89d6987fdb2325bc66d59f483258543c14a43661621f841b0
+  languageName: node
+  linkType: hard
+
+"@pablosz/graphql-helix-graphiql@npm:^4.2.1":
+  version: 4.2.1
+  resolution: "@pablosz/graphql-helix-graphiql@npm:4.2.1"
+  dependencies:
+    "@graphql-ez/utils": ^0.1.2
+  checksum: b8771ff3c6ffabfd89ae683e4380474722e8bfbe7b6936ac5073a1471558405de52cc6f720c5579bee6ebaeaa77af3c2c87808fb412a719314f6ff350ebdb606
+  languageName: node
+  linkType: hard
+
+"@pablosz/graphql-helix@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "@pablosz/graphql-helix@npm:2.0.3"
+  peerDependencies:
+    graphql: "*"
+  checksum: 0e0694622960bbe256c00d402a5118609aaa0d67edfeab9dce95cd8302bd91ff82eae986ed2a27e133d307dd70d2a77716bca4c3f8ef32ea9edc5075b36f5b52
   languageName: node
   linkType: hard
 
@@ -260,7 +334,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
+"@types/node@npm:*, @types/node@npm:^17.0.40":
   version: 17.0.40
   resolution: "@types/node@npm:17.0.40"
   checksum: e3b2fe876672fbe4be84ce17773944eb2f5eaba50e2c6c0536bdf6d4972ed6488581580581f154183fdc8f2d56fa42a42e3d6e83b9b71ee25adea16a84765e92
@@ -837,14 +911,20 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "demo-houdini-bug-with-list-insertion@workspace:."
   dependencies:
+    "@graphql-ez/plugin-graphiql": ^0.11.5
+    "@graphql-ez/sveltekit": ^0.4.1
     "@playwright/test": ^1.21.0
     "@sveltejs/adapter-auto": next
     "@sveltejs/kit": next
+    "@types/node": ^17.0.40
     "@typescript-eslint/eslint-plugin": ^5.10.1
     "@typescript-eslint/parser": ^5.10.1
     eslint: ^8.12.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-svelte3: ^4.0.0
+    graphql: ^16.5.0
+    graphql-ez: ^0.15.0
+    nexus: ^1.3.0
     prettier: ^2.5.1
     prettier-plugin-svelte: ^2.5.0
     svelte: ^3.44.0
@@ -1614,6 +1694,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"graphql-ez@npm:^0.15.0":
+  version: 0.15.0
+  resolution: "graphql-ez@npm:0.15.0"
+  dependencies:
+    "@envelop/core": ^2.3.2
+    "@envelop/types": ^2.2.0
+    "@graphql-ez/utils": ^0.1.4
+    "@pablosz/graphql-helix": ^2.0.3
+    tiny-lru: 8.0.2
+  peerDependencies:
+    graphql: "*"
+  peerDependenciesMeta:
+    graphql:
+      optional: true
+  checksum: bce104bc8046501e25693f800d285b23e364b90a5c0ef27bb9e136b4dc0be8ed04b005a6206d12e0e7976bd44ad515989c9fbc506e77ca8300b451c64981d319
+  languageName: node
+  linkType: hard
+
+"graphql@npm:^16.5.0":
+  version: 16.5.0
+  resolution: "graphql@npm:16.5.0"
+  checksum: a82a926d085818934d04fdf303a269af170e79de943678bd2726370a96194f9454ade9d6d76c2de69afbd7b9f0b4f8061619baecbbddbe82125860e675ac219e
+  languageName: node
+  linkType: hard
+
 "has-flag@npm:^4.0.0":
   version: 4.0.0
   resolution: "has-flag@npm:4.0.0"
@@ -1845,6 +1950,13 @@ __metadata:
   version: 2.0.0
   resolution: "isexe@npm:2.0.0"
   checksum: 26bf6c5480dda5161c820c5b5c751ae1e766c587b1f951ea3fcfc973bafb7831ae5b54a31a69bd670220e42e99ec154475025a468eae58ea262f813fdc8d1c62
+  languageName: node
+  linkType: hard
+
+"iterall@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "iterall@npm:1.3.0"
+  checksum: c78b99678f8c99be488cca7f33e4acca9b72c1326e050afbaf023f086e55619ee466af0464af94a0cb3f292e60cb5bac53a8fd86bd4249ecad26e09f17bb158b
   languageName: node
   linkType: hard
 
@@ -2183,6 +2295,18 @@ __metadata:
   version: 0.6.3
   resolution: "negotiator@npm:0.6.3"
   checksum: b8ffeb1e262eff7968fc90a2b6767b04cfd9842582a9d0ece0af7049537266e7b2506dfb1d107a32f06dd849ab2aea834d5830f7f4d0e5cb7d36e1ae55d021d9
+  languageName: node
+  linkType: hard
+
+"nexus@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "nexus@npm:1.3.0"
+  dependencies:
+    iterall: ^1.3.0
+    tslib: ^2.0.3
+  peerDependencies:
+    graphql: 15.x || 16.x
+  checksum: 811a4ef69d811d77dee2d368dde487a8e1494fc7878ce2dd72f0863eb6030f8e52984e0fbfa12ae970377f2e9b7402a48cde804a16fdd754b4c83e34b92f91de
   languageName: node
   linkType: hard
 
@@ -3135,6 +3259,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tiny-lru@npm:8.0.2":
+  version: 8.0.2
+  resolution: "tiny-lru@npm:8.0.2"
+  checksum: ec4d884914626760eef05cd57850f21a153adeeb7c4242eb8d44a031f1bd8489f18c1bf5d6f10f0a11c5dcfe03b302f26b00f2b879b38853599486bf0dca8c97
+  languageName: node
+  linkType: hard
+
 "to-regex-range@npm:^5.0.1":
   version: 5.0.1
   resolution: "to-regex-range@npm:5.0.1"
@@ -3158,7 +3289,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.3.1":
+"tslib@npm:^2.0.3, tslib@npm:^2.3.1":
   version: 2.4.0
   resolution: "tslib@npm:2.4.0"
   checksum: 8c4aa6a3c5a754bf76aefc38026134180c053b7bd2f81338cb5e5ebf96fefa0f417bff221592bf801077f5bf990562f6264fecbc42cd3309b33872cb6fc3b113
