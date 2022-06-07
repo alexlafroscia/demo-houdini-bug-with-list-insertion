@@ -6,7 +6,8 @@ import {
 	nonNull,
 	idArg,
 	mutationField,
-	stringArg
+	stringArg,
+	interfaceType
 } from 'nexus';
 
 type ID = string;
@@ -26,10 +27,42 @@ const LISTS = new Map<ID, ListAttrs>();
 LISTS.set('List1', { items: [] });
 LISTS.set('List2', { items: [] });
 
+export const Node = interfaceType({
+	name: 'Node',
+	resolveType(root) {
+		if ('message' in root) {
+			return 'Item';
+		} else {
+			return 'List';
+		}
+	},
+	definition(t) {
+		t.nonNull.id('id');
+	}
+});
+
+export const node = queryField('node', {
+	type: Node,
+	args: {
+		id: nonNull(idArg())
+	},
+	resolve(_root, { id }) {
+		const list = LISTS.get(id);
+
+		if (list) {
+			return { id, ...list };
+		}
+
+		const allItems = [...LISTS.values()].flatMap((list) => list.items);
+
+		return allItems.find((item) => item.id === id) ?? null;
+	}
+});
+
 export const Item = objectType({
 	name: 'Item',
 	definition(t) {
-		t.nonNull.id('id');
+		t.implements(Node);
 
 		t.nonNull.string('message');
 	}
@@ -38,7 +71,7 @@ export const Item = objectType({
 export const List = objectType({
 	name: 'List',
 	definition(t) {
-		t.nonNull.id('id');
+		t.implements(Node);
 
 		t.nonNull.field('items', {
 			type: nonNull(graphqlList(nonNull(Item)))

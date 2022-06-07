@@ -34,11 +34,13 @@ export interface NexusGenObjects {
 	Query: {};
 }
 
-export interface NexusGenInterfaces {}
+export interface NexusGenInterfaces {
+	Node: NexusGenRootTypes['Item'] | NexusGenRootTypes['List'];
+}
 
 export interface NexusGenUnions {}
 
-export type NexusGenRootTypes = NexusGenObjects;
+export type NexusGenRootTypes = NexusGenInterfaces & NexusGenObjects;
 
 export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars;
 
@@ -61,6 +63,11 @@ export interface NexusGenFieldTypes {
 		// field return type
 		list: NexusGenRootTypes['List'] | null; // List
 		lists: NexusGenRootTypes['List'][]; // [List!]!
+		node: NexusGenRootTypes['Node'] | null; // Node
+	};
+	Node: {
+		// field return type
+		id: string; // ID!
 	};
 }
 
@@ -83,6 +90,11 @@ export interface NexusGenFieldTypeNames {
 		// field return type name
 		list: 'List';
 		lists: 'List';
+		node: 'Node';
+	};
+	Node: {
+		// field return type name
+		id: 'ID';
 	};
 }
 
@@ -99,12 +111,21 @@ export interface NexusGenArgTypes {
 			// args
 			id: string; // ID!
 		};
+		node: {
+			// args
+			id: string; // ID!
+		};
 	};
 }
 
-export interface NexusGenAbstractTypeMembers {}
+export interface NexusGenAbstractTypeMembers {
+	Node: 'Item' | 'List';
+}
 
-export interface NexusGenTypeInterfaces {}
+export interface NexusGenTypeInterfaces {
+	Item: 'Node';
+	List: 'Node';
+}
 
 export type NexusGenObjectNames = keyof NexusGenObjects;
 
@@ -112,7 +133,7 @@ export type NexusGenInputNames = never;
 
 export type NexusGenEnumNames = never;
 
-export type NexusGenInterfaceNames = never;
+export type NexusGenInterfaceNames = keyof NexusGenInterfaces;
 
 export type NexusGenScalarNames = keyof NexusGenScalars;
 
@@ -120,7 +141,7 @@ export type NexusGenUnionNames = never;
 
 export type NexusGenObjectsUsingAbstractStrategyIsTypeOf = never;
 
-export type NexusGenAbstractsUsingStrategyResolveType = never;
+export type NexusGenAbstractsUsingStrategyResolveType = 'Node';
 
 export type NexusGenFeaturesConfig = {
 	abstractTypeStrategies: {
