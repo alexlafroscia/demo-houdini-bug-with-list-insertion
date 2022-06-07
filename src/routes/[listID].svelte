@@ -60,14 +60,14 @@
 <h1>List {$list.id}</h1>
 
 <form on:submit={addItem}>
-	<input bind:value={newItemMessage} placeholder="Item Text" />
+	<input data-test-new-item bind:value={newItemMessage} placeholder="Item Text" />
 
-	<button>Add</button>
+	<button data-test-submit-item>Add</button>
 </form>
 
 <ul>
 	{#each $list.items as item}
-		<li>{item.message}</li>
+		<li data-test-item={item.id}>{item.message}</li>
 	{:else}
 		<li><i>No items in this list</i></li>
 	{/each}
