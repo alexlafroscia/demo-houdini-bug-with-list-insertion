@@ -20,6 +20,17 @@ export interface NexusGenScalars {
 }
 
 export interface NexusGenObjects {
+	Item: {
+		// root type
+		id: string; // ID!
+		message: string; // String!
+	};
+	List: {
+		// root type
+		id: string; // ID!
+		items: NexusGenRootTypes['Item'][]; // [Item!]!
+	};
+	Mutation: {};
 	Query: {};
 }
 
@@ -32,20 +43,64 @@ export type NexusGenRootTypes = NexusGenObjects;
 export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars;
 
 export interface NexusGenFieldTypes {
+	Item: {
+		// field return type
+		id: string; // ID!
+		message: string; // String!
+	};
+	List: {
+		// field return type
+		id: string; // ID!
+		items: NexusGenRootTypes['Item'][]; // [Item!]!
+	};
+	Mutation: {
+		// field return type
+		addItem: NexusGenRootTypes['Item']; // Item!
+	};
 	Query: {
 		// field return type
-		ok: boolean; // Boolean!
+		list: NexusGenRootTypes['List'] | null; // List
+		lists: NexusGenRootTypes['List'][]; // [List!]!
 	};
 }
 
 export interface NexusGenFieldTypeNames {
+	Item: {
+		// field return type name
+		id: 'ID';
+		message: 'String';
+	};
+	List: {
+		// field return type name
+		id: 'ID';
+		items: 'Item';
+	};
+	Mutation: {
+		// field return type name
+		addItem: 'Item';
+	};
 	Query: {
 		// field return type name
-		ok: 'Boolean';
+		list: 'List';
+		lists: 'List';
 	};
 }
 
-export interface NexusGenArgTypes {}
+export interface NexusGenArgTypes {
+	Mutation: {
+		addItem: {
+			// args
+			listID: string; // ID!
+			message: string; // String!
+		};
+	};
+	Query: {
+		list: {
+			// args
+			id: string; // ID!
+		};
+	};
+}
 
 export interface NexusGenAbstractTypeMembers {}
 

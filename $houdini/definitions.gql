@@ -46,3 +46,17 @@ directive @arguments on FRAGMENT_DEFINITION
 @cache is used to specify cache rules for a query
 """
 directive @cache(policy: CachePolicy, partial: Boolean) on QUERY
+
+fragment ListItems_insert on Item {
+	id
+	message
+}
+fragment ListItems_toggle on Item {
+	id
+	message
+	id
+}
+fragment ListItems_remove on Item {
+	id
+}
+directive @Item_delete repeatable on FIELD

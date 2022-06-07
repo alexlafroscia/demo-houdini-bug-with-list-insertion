@@ -4,7 +4,9 @@ export type IndexPage = {
 };
 
 export type IndexPage$result = {
-	readonly ok: boolean;
+	readonly lists: {
+		readonly id: string;
+	}[];
 };
 
 export type IndexPage$afterLoad = {

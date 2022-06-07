@@ -1,17 +1,22 @@
 <script lang="ts">
+	import { derived } from 'svelte/store';
 	import { type IndexPage, query, graphql } from '$houdini';
 
 	const { data } = query<IndexPage>(graphql`
 		query IndexPage {
-			ok
+			lists {
+				id
+			}
 		}
 	`);
+
+	const lists = derived(data, (data) => data?.lists ?? []);
 </script>
 
 <h1>Welcome to SvelteKit</h1>
 
-{#if $data?.ok}
-	<p>GraphQL says that things are OK!</p>
-{:else}
-	<p>Something is wrong with the GraphQL setup</p>
-{/if}
+<ul>
+	{#each $lists as list}
+		<li><a href={`/${list.id}`}>List {list.id}</a></li>
+	{/each}
+</ul>
