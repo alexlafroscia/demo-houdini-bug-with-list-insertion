@@ -17,6 +17,10 @@
 
 <ul>
 	{#each $lists as list}
-		<li><a href={`/${list.id}`}>List {list.id}</a></li>
+		<li>
+			<a data-test-list-link={list.id} href={`/${list.id}`}>
+				List {list.id}
+			</a>
+		</li>
 	{/each}
 </ul>

@@ -54,7 +54,7 @@
 </script>
 
 <header>
-	<a href="/">All Lists</a>
+	<a href="/" data-test-all-lists>All Lists</a>
 </header>
 
 <h1>List {$list.id}</h1>
